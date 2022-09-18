@@ -1,0 +1,11 @@
+.library-section-container{
+  display: flex;
+ 
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.library-section-container ul{
+  flex: 1;
+  background-color: aqua;
+}
