@@ -1,11 +1,84 @@
-.library-section-container{
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+  font-size: 80px;
+  text-align: center;
+}
+
+.add-book-section{
+  border: solid 0.1px lightgrey;
+  border-radius: 10px;
+  background-color: rgb(182, 79, 79);
+  padding: 10px;
+}
+
+
+form{
   display: flex;
- 
+  justify-content: space-between;
   gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+form div{
+  flex: 1;
+}
+
+input{
+ width: 100%;
+}
+
+.read-book-container{
+  max-width: 190px;
+}
+
+.adding-button{
+  background-color: gray;
+  font-size: 20px;
+}
+.library-section{
+  margin-top: 80px;
+}
+
+.library-section-container{ 
+  background-color: rgb(182, 79, 79);
+  padding: 10px;
+  display: flex;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.library-section-container ul{
-  flex: 1;
-  background-color: aqua;
+.book-container{
+  background-color: grey;
+  width: 310px;
+  height: 200px;
+  position: relative;
+  padding: 5px;
+}
+
+.book-container ul{
+  font-size: 19px;
+}
+
+.book-container p{
+  position: absolute;
+  bottom: 0px;
+  right: 90px;
+  background-color: rgb(182, 79, 79);
+  border-radius: 5px;
+  text-align: center;
+  width: 140px;
+  cursor: pointer;
+}
+
+.book-container button{
+  background-color: red;
+  position:absolute;
+  right: 0px;
+  border-radius: 2px;
+  cursor: pointer;
+  
 }

@@ -10,20 +10,30 @@
 <body>
   <h1>Book Library</h1>
   <section class="add-book-section">
-    <h2>Add New Book</h2>
+    
     <form>
-      <label for="title">Title:</label>
-      <input id="title" type="text" >
-      <label for ="author">Author:</label>
-      <input id ="author" type="text">
-      <label for="pages">Pages:</label>
-      <input id="pages" type="number">
-      <label for="read">read the book?</label>
-      <select id ="read">
-        <option value="already read">already read</option>
-        <option value="not read yet">not read yet</option>
-      </select>
-     <!--<button class="add-button">Add to the List</button>--> 
+      <div>
+        <label for="title">Title:</label>
+        <input id="title" type="text" >
+      </div>
+      <div>
+        <label for ="author">Author:</label>
+        <input id ="author" type="text">
+      </div>
+      <div>
+        <label for="pages">Pages:</label>
+        <input id="pages" type="number">
+      </div>
+      <div class="read-book-container">
+         <label for="read">read the book?</label>
+        <select id ="read">
+          <option value="already read">already read</option>
+          <option value="not read yet">not read yet</option>
+        </select>
+      </div>
+      
+     
+  
 
     </form>
       <button class="adding-button">Add new Book</button>

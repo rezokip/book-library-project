@@ -1,13 +1,13 @@
 // select the html elements 
-let myLibraryEl = document.querySelector('.library-section-container')
-let addButton = document.querySelector('.adding-button')
-
-
 let titleInput = document.querySelector('#title')
 let authorInput = document.querySelector('#author')
 let pagesInput = document.querySelector('#pages')
 let readInput = document.querySelector('#read')
+let addButton = document.querySelector('.adding-button')
 
+
+
+let myLibraryEl = document.querySelector('.library-section-container')
 
 // create myLibrary Array to store all Books
 let myLibrary = []
@@ -32,9 +32,11 @@ Book.prototype.toggleReadStatus = function(){
 }
 
 // function for adding the books to the library
-function addBookToLibrary (book){
-  myLibrary.push(book)
+function addBookToLibrary (title, author, pages, read){
+  let newBook = new Book(title,author,pages,read)
+  myLibrary.push(newBook)
 }
+
 
 
 // event listener of the add button, to create a new book with the input values
@@ -51,8 +53,7 @@ function addBookToLibrary (book){
         let author = authorInput.value
         let pages = pagesInput.value
         let read = readInput.value        
-        let newBook = new Book (title,author,pages,read)
-        addBookToLibrary(newBook)
+        addBookToLibrary(title,author,pages,read)
         addToDom()
   
         titleInput.value=""
@@ -62,20 +63,14 @@ function addBookToLibrary (book){
     })
     
     
-// create new Books with the constructor function
-book1 = new Book('In Search of Lost Time', 'Marcel Proust', 200, 'not read yet')
-book2 = new Book('Ulysses', 'James Joyce', 300, 'already read')
-book3 = new Book('Don Quixote', 'Miguel de Cervantes', 306, 'already read')
-book4 = new Book('One Hundred Years of Solitude', 'Gabriel Garcia Marquez', 230, 'not read yet')
-book5 = new Book('The Great Gatsby', 'F. Scott Flitzgerald', 180, 'already read')
 
 
 // add the books to the library
-addBookToLibrary(book1)
-addBookToLibrary(book2)
-addBookToLibrary(book3)
-addBookToLibrary(book4)
-addBookToLibrary(book5)
+addBookToLibrary('In Search of Lost Time', 'Marcel Proust', 200, 'not read yet')
+addBookToLibrary('Ulysses', 'James Joyce', 300, 'already read')
+addBookToLibrary('Don Quixote', 'Miguel de Cervantes', 306, 'already read')
+addBookToLibrary('One Hundred Years of Solitude', 'Gabriel Garcia Marquez', 230, 'not read yet')
+addBookToLibrary('The Great Gatsby', 'F. Scott Flitzgerald', 180, 'already read')
 
 
 // function for adding the books from the myLibrary array to the DOM
@@ -97,7 +92,7 @@ function addToDom(){
     bookAuthorEl = document.createElement('li')
     bookPagesEl = document.createElement('li')
     bookReadEl = document.createElement('li')
-    toggleReadButton = document.createElement('button')
+    toggleReadButton = document.createElement('p')
  
     // give them textcontent
     bookDeleteButton.textContent = 'x'
@@ -107,12 +102,21 @@ function addToDom(){
     bookReadEl.textContent = book.read
     toggleReadButton.textContent = 'toggle read status'
 
-   
     //append them to the parents
     bookUlEl.append(bookTitleEl, bookAuthorEl, bookPagesEl, bookReadEl)
     bookContainer.append( bookDeleteButton, bookUlEl, toggleReadButton)
     myLibraryEl.appendChild(bookContainer)
 
+    // give Them classes
+    bookContainer.classList.add('book-container')
+    bookUlEl.classList.add('book-ul')
+    bookTitleEl.classList.add('book-title')
+    bookAuthorEl.classList.add('book-author')
+    bookPagesEl.classList.add('book-pages') 
+    bookReadEl.classList.add('book-read-status')   
+
+
+    // individuall Classes for the Clickable buttons
     // get the index of each book and
     // create a class for each book based on its own index in the myLibrary array
       // add the created class to the book delete button and the toggle read button
@@ -125,7 +129,7 @@ function addToDom(){
     // use splice method to delete object from the Library
     // call addToDom function to update the dom
     bookDeleteButton.addEventListener('click', function(){
-      thisClass = thiss.classList.value   
+      thisClass = this.classList.value   
       myLibrary.splice(thisClass,1)
       addToDom() 
     })
