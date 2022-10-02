@@ -14,22 +14,25 @@ let myLibrary = []
 
 
 // Constroctor function for the Book objects
-function Book (title, author, pages, read){
+class Book{
+  constructor(title, author, pages, read) {
   this.title = title
   this.author = author
   this.pages= pages
   this.read = read
+  }
+  toggleReadStatus (){
+    if (this.read=== "already read"){
+      this.read= 'not read yet'
+    }
+    else if(this.read==='not read yet'){
+      this.read='already read'
+    }
+  }
 }
 
-// prototype method to toggle the read status of the book
-Book.prototype.toggleReadStatus = function(){
-  if (this.read=== "already read"){
-    this.read= 'not read yet'
-  }
-  else if(this.read==='not read yet'){
-    this.read='already read'
-  }
-}
+
+
 
 // function for adding the books to the library
 function addBookToLibrary (title, author, pages, read){
